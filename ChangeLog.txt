@@ -29,6 +29,7 @@ Broker:
 - mosquitto_db_dump tool can now output some stats on clients.
 - perform utf-8 validation on incoming will, subscription and unsubscription
   topics.
+- Add upgrade_bridge_qos option in configuration. Closes #203.
 
 Client library:
 - Outgoing messages with QoS>1 are no longer retried after a timeout period.

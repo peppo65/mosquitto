@@ -109,7 +109,7 @@ static int subs__process(struct mosquitto_db *db, struct mosquitto__subhier *hie
 		}else if(rc2 == MOSQ_ERR_SUCCESS){
 			client_qos = leaf->qos;
 
-			if(db->config->upgrade_outgoing_qos){
+			if((db->config->upgrade_bridge_qos && leaf->context->is_bridge) || db->config->upgrade_outgoing_qos){
 				msg_qos = client_qos;
 			}else{
 				if(qos > client_qos){

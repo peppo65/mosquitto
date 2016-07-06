@@ -214,6 +214,7 @@ struct mosquitto__config {
 	bool queue_qos0_messages;
 	int sys_interval;
 	bool upgrade_outgoing_qos;
+	bool upgrade_bridge_qos;
 	char *user;
 	bool verbose;
 #ifdef WITH_WEBSOCKETS

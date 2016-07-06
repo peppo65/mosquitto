@@ -577,6 +577,20 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term><option>upgrade_bridge_qos</option> [ true | false ]</term>
+				<listitem>
+					<para>If <option>upgrade_bridge_qos</option> is set to
+						<replaceable>true</replaceable>, messages
+						delivered to another broker on a bridge will be published with
+						the QoS level specified for that bridge. If set to
+						<replaceable>false</replaceable>, then the QoS level specified
+						for the bridge is used as an upper limit respect to the QoS of
+						the original incoming messages.
+						Defaults to <replaceable>false</replaceable>.</para>
+					<para>Reloaded on reload signal.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term><option>user</option> <replaceable>username</replaceable></term>
 				<listitem>
 					<para>When run as root, change to this user and its primary
