@@ -159,6 +159,7 @@ static void config__init_reload(struct mosquitto__config *config)
 	config->queue_qos0_messages = false;
 	config->sys_interval = 10;
 	config->upgrade_outgoing_qos = false;
+	config->upgrade_bridge_qos = false;
 	if(config->auth_plugins){
 		for(i=0; i<config->auth_plugin_count; i++){
 			plug = &config->auth_plugins[i];
@@ -1716,6 +1717,8 @@ int config__read_file_core(struct mosquitto__config *config, bool reload, const 
 #endif
 				}else if(!strcmp(token, "upgrade_outgoing_qos")){
 					if(conf__parse_bool(&token, token, &config->upgrade_outgoing_qos, saveptr)) return MOSQ_ERR_INVAL;
+				}else if(!strcmp(token, "upgrade_bridge_qos")){
+					if(conf__parse_bool(&token, token, &config->upgrade_bridge_qos, saveptr)) return MOSQ_ERR_INVAL; 
 				}else if(!strcmp(token, "use_identity_as_username")){
 #ifdef WITH_TLS
 					if(reload) continue; // Listeners not valid for reloading.
